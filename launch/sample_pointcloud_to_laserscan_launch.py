@@ -28,7 +28,7 @@ def generate_launch_description():
         ),
         Node(
             package='pointcloud_to_laserscan', executable='pointcloud_to_laserscan_node',
-            remappings=[('cloud_in', [LaunchConfiguration(variable_name='scanner'), '/cloud']),
+            remappings=[('rslidar_points', [LaunchConfiguration(variable_name='scanner'), '/cloud']),
                         ('scan', [LaunchConfiguration(variable_name='scanner'), '/scan'])],
             parameters=[{
                 'target_frame': 'cloud',
