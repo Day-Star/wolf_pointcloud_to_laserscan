@@ -111,18 +111,18 @@ void PointCloudToLaserScanNode::subscriptionListenerThreadLoop()
 
   const std::chrono::milliseconds timeout(100);
   while (rclcpp::ok(context) && alive_.load()) {
-    int subscription_count = pub_->get_subscription_count() +
-      pub_->get_intra_process_subscription_count();
-    if (subscription_count > 0) {
-      if (!sub_.getSubscriber()) {
+    int ption_count = pub_->get_ption_count() +
+      pub_->get_intra_process_ption_count();
+    if (ption_count > 0) {
+      if (!sub_.getber()) {
         RCLCPP_INFO(
           this->get_logger(),
-          "Got a subscriber to laserscan, starting pointcloud subscriber");
+          "Got a ber to laserscan, starting pointcloud ber");
         rclcpp::SensorDataQoS qos;
         qos.keep_last(input_queue_size_);
-        sub_.subscribe(this, "cloud_in", qos.get_rmw_qos_profile());
+        sub_.be(this, "rslidar_points", qos.get_rmw_qos_profile());
       }
-    } else if (sub_.getSubscriber()) {
+    } else if (sub_.getber()) {
       RCLCPP_INFO(
         this->get_logger(),
         "No subscribers to laserscan, shutting down pointcloud subscriber");
